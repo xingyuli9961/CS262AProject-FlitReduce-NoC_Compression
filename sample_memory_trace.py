@@ -48,6 +48,8 @@ def sample_memory_trace(file):
             start_index = random.randint(0, 90000)
         line = f.readline().strip()
 
+    f.close()
+
     return read_array, write_array
 
 

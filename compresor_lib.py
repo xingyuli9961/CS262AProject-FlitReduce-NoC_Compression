@@ -1,4 +1,5 @@
-# This work is based on Tushar's work https://github.com/t14916/NoC_Compression/blob/main/compression_lib.py
+# This work used "compression_lib.py" by Tushar, and the link is
+# https://github.com/t14916/NoC_Compression/blob/main/compression_lib.py
 def no_delta(data_flits):
     mask = int("0xfffffffffffffffffff0")
     base_flit = data_flits[0]
