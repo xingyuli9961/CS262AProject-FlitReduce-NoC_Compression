@@ -4,6 +4,7 @@
 
 import sys
 import random
+import compresor_lib
 
 
 def sample_memory_trace(file):
