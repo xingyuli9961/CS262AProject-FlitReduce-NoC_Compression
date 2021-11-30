@@ -1,0 +1,3 @@
+[submodule "NoC_Compression_Benchmarks"]
+	path = NoC_Compression_Benchmarks
+	url = https://github.com/t14916/NoC_Compression_Benchmarks.git
