@@ -1,3 +1,6 @@
 [submodule "NoC_Compression_Benchmarks"]
 	path = NoC_Compression_Benchmarks
 	url = https://github.com/t14916/NoC_Compression_Benchmarks.git
+[submodule "riscv-isa-sim"]
+	path = riscv-isa-sim
+	url = https://github.com/xingyuli9961/riscv-isa-sim.git
