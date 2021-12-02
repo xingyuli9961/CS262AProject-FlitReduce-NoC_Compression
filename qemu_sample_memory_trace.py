@@ -7,7 +7,7 @@ import random
 import compresor_lib
 
 
-def sample_memory_trace(file):
+def qemu_sample_memory_trace(file):
     print(f'Hi, I am processing {file}')
     f = open("/Users/xingyuli/Desktop/Logs/" + file, 'r')
     # set up return list
@@ -56,7 +56,7 @@ def sample_memory_trace(file):
 if __name__ == '__main__':
     # filename = str(sys.argv[1])
     filename = "631.deepsjeng_s.txt"
-    read_samples, write_samples = sample_memory_trace(filename)
+    read_samples, write_samples = qemu_sample_memory_trace(filename)
     print(read_samples)
     print(write_samples)
     print("Work Done.")
