@@ -1,17 +1,34 @@
 # This work used "compression_lib.py" by Tushar, and the link is
 # https://github.com/t14916/NoC_Compression/blob/main/compression_lib.py
-def no_delta(data_flits):
-    mask = int("0xfffffffffffffffffff0")
+
+# 64bit base, 1 byte offset
+def no_delta_compressor1(data_flits):
     base_flit = data_flits[0]
     delta_flits = []
 
     for flit in data_flits[1:]:
-        del_flit = base_flit & ~flit
-        delta_flits.append(del_flit)
-        if mask & del_flit:
-            return None
+        offset = flit - base_flit
+        if -128 <= offset <= 127:
+            delta_flits.append(offset)
+        else:
+            return False, None, None
 
-    return delta_flits
+    return True, base_flit, delta_flits
+
+
+# 64bit base, 2 bytes offset
+def no_delta_compressor2(data_flits):
+    base_flit = data_flits[0]
+    delta_flits = []
+
+    for flit in data_flits[1:]:
+        offset = flit - base_flit
+        if -32768 <= offset <= 32767:
+            delta_flits.append(offset)
+        else:
+            return False, None, None
+
+    return True, base_flit, delta_flits
 
 
 def flit_zip(data_flits):

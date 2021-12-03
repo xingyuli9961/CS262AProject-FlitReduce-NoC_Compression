@@ -1,0 +1,20 @@
+Compressing 401.bzip2.sample:
+The origin number of the flits is 5336000
+The new number of the flits is 5302348
+The compression rate in number of flits is 0.9936934032983509
+Compressing 450.soplex.sample:
+The origin number of the flits is 3480000
+The new number of the flits is 3448210
+The compression rate in number of flits is 0.9908649425287356
+Compressing 470.lbm.sample:
+The origin number of the flits is 1144000
+The new number of the flits is 1046598
+The compression rate in number of flits is 0.9148583916083917
+Compressing 429.mcf.sample:
+The origin number of the flits is 11000000
+The new number of the flits is 10981162
+The compression rate in number of flits is 0.9982874545454545
+Compressing 458.sjeng.sample:
+The origin number of the flits is 1856000
+The new number of the flits is 1678768
+The compression rate in number of flits is 0.9045086206896552
