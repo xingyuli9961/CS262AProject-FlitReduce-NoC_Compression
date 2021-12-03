@@ -31,6 +31,41 @@ def no_delta_compressor2(data_flits):
     return True, base_flit, delta_flits
 
 
+# our own proposal 1
+def adapted_no_delta_compressor(data_flits):
+    base_flit = data_flits[0]
+    offset_flits = []
+    delta_flits = []
+    mask = 0
+    for flit in data_flits:
+        offset = flit - base_flit
+        if -128 <= offset <= 127:
+            offset_flits.append(offset)
+            mask += 1
+        else:
+            offset_flits.append(0)
+            delta_flits.append(flit)
+        mask = mask << 1
+    return base_flit, offset_flits, delta_flits, mask
+
+
+# our own proposal 2
+def another_adapted_no_delta_compressor(data_flits):
+    delta_flits = []
+    data_max = max(data_flits)
+    data_min = min(data_flits)
+    if data_max - data_min > 256:
+        return False, None, None
+
+    base_flit = (data_max + data_min) // 2
+    for flit in data_flits:
+        offset = flit - base_flit
+        delta_flits.append(offset)
+
+    return True, base_flit, delta_flits
+
+
+
 def flit_zip(data_flits):
     return None
 
