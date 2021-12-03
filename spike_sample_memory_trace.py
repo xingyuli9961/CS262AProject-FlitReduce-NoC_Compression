@@ -29,7 +29,7 @@ def spike_sample_memory_trace(file):
             if (int(line_list[2], base = 16) >> 6) == prev_addr:
                 line = f.readline().strip()
                 continue
-            
+
 
     f.close()
     out.close()
