@@ -4,7 +4,6 @@
 
 import sys
 import random
-import compresor_lib
 
 
 def qemu_sample_memory_trace(file):
