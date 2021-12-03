@@ -18,7 +18,7 @@ def flit_zip(data_flits):
     return None
 
 
-# The header of the zen_compression is an-hot mask, so for our case, it should be 8-bit.
+# The header of the zen_compression is an one-hot mask
 def zero_compressor(data_flits):
     delta_flits = []
     mask = 0
