@@ -23,6 +23,13 @@ def mix_compression(file):
             data2.append((tmp << 32) >> 48)
             data2.append((tmp << 48) >> 48)
         header, compressed_data = compresor_lib.zero_compressor(data2)
+        data3 = []
+        for x in tmp_data:
+            tmp = int(x, base=16)
+            data3.append(tmp >> 32)
+            data3.append((tmp << 32) >> 32)
+        fpc_size, fpc_prefix, fpc_data = compresor_lib.frequent_pattern_compressor(data3)
+
         z_size = 0
         if header == 0:
             z_size = 8
@@ -32,7 +39,16 @@ def mix_compression(file):
             else:
                 z_size = 1 + len(compressed_data) // 4
 
-        new_flits += min(abnd_size, z_size)
+        f_size = 0
+        if fpc_size >= 512:
+            f_size = 8
+        else:
+            if fpc_size % 64 == 0:
+                f_size = fpc_size // 64
+            else:
+                f_size = 1 + fpc_size // 64
+
+        new_flits += min(abnd_size, z_size, f_size)
 
     print("The new number of the flits is " + str(new_flits))
     print("The compression rate in number of flits is " + str(new_flits / origin_flits))
